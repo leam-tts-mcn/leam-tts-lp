@@ -4422,7 +4422,10 @@ h1,h2,h3,h4,p,li,summary,figcaption,dd,dt,.lead,.note{
   .cf-opts{gap:7px}
 }
 
-/* 「その他」を選んだときに出る記入欄 */
+/* 「その他」を選んだときに出る記入欄
+   🔴 著者スタイルの display:block はUA既定の [hidden]{display:none} を上書きするので、
+      hidden を明示的に効かせる1行が要る（これが無いと常時表示になる） */
+.cf-other[hidden]{display:none !important}
 .cf-other{display:block;width:100%;margin-top:10px;background:#fff;border:1px solid #c2c5cb;
   border-radius:8px;padding:11px 13px;color:#111215;font-size:16px;font-family:inherit;line-height:1.6;
   transition:border-color .15s,box-shadow .15s}
