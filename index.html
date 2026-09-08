@@ -1100,6 +1100,7 @@
           <label class="cf-pill"><input type="radio" name="q_cat" value="まだ決まっていない"><span>まだ決まっていない</span></label>
           <label class="cf-pill"><input type="radio" name="q_cat" value="その他"><span>その他</span></label>
         </div>
+        <input class="cf-other" id="cf-cat-other" name="q_cat_other" type="text" placeholder="よろしければ商材をご記入ください" hidden>
       </fieldset>
       <fieldset class="cf-q">
         <legend>ECの年商規模 <span class="cf-any">任意</span></legend>
@@ -1119,6 +1120,7 @@
           <label class="cf-pill"><input type="checkbox" name="q_ch" value="実店舗のみ"><span>実店舗のみ</span></label>
           <label class="cf-pill"><input type="checkbox" name="q_ch" value="その他"><span>その他</span></label>
         </div>
+        <input class="cf-other" id="cf-ch-other" name="q_ch_other" type="text" placeholder="よろしければ販売先をご記入ください" hidden>
       </fieldset>
       <fieldset class="cf-q">
         <legend>知りたいこと <span class="cf-any">複数選択可</span></legend>
@@ -1354,6 +1356,29 @@
     var m=document.cookie.match('(^|;)\\s*'+n+'\\s*=\\s*([^;]+)');
     return m?m.pop():'';
   }
+  /* 「その他」を選んだときだけ記入欄を出す */
+  [['q_cat','cf-cat-other'],['q_ch','cf-ch-other']].forEach(function(pair){
+    var name=pair[0], box=document.getElementById(pair[1]);
+    if(!box)return;
+    form.querySelectorAll('input[name="'+name+'"]').forEach(function(el){
+      el.addEventListener('change', function(){
+        var on=!!form.querySelector('input[name="'+name+'"][value="その他"]:checked');
+        box.hidden=!on;
+        if(on) box.focus(); else box.value='';
+      });
+    });
+  });
+
+  /* 「その他」の自由記述は HubSpot 側の選択肢に無い値なので、
+     選択肢としては送らず「ご相談内容」に添える（不正値で400になるのを避ける） */
+  function buildInquiry(){
+    var out=[form.elements['inquary'].value.trim()];
+    var c=form.elements['q_cat_other'];
+    var h=form.elements['q_ch_other'];
+    if(c && !c.hidden && c.value.trim()) out.push('商品カテゴリ（その他）：'+c.value.trim());
+    if(h && !h.hidden && h.value.trim()) out.push('販売チャネル（その他）：'+h.value.trim());
+    return out.filter(Boolean).join('\n');
+  }
   function pick(n){
     var el=form.querySelector('input[name="'+n+'"]:checked');
     return el?el.value:'';
@@ -1394,7 +1419,7 @@
         {name:'firstname', value:form.elements['firstname'].value.trim()},
         {name:'email',     value:form.elements['email'].value.trim()},
         {name:'phone',     value:form.elements['phone'].value.trim()},
-        {name:'inquary',   value:form.elements['inquary'].value.trim()},
+        {name:'inquary',   value:buildInquiry()},
         /* 診断5問。HubSpot側のプロパティ内部名は変更できないのでこの綴りのまま使う。
            複数選択は「;」区切りで送る */
         {name:'q_tiktok_shop____________',                          value:pick('q_status')},
