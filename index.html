@@ -4,10 +4,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <!-- 🔴 計測タグは入れない（2026-09-08 江崎さん方針）
-     このLPは「広告が止まったら捨てる消耗品」として使うため、コーポレート（leam.co.jp）と
-     一切紐付けない。GA4の共通測定ID G-CTLWMWXHQQ を入れると、Googleのプロパティ上で
-     コーポレートとこのLPが同一資産として結びつくので使わない。
-     計測が要るなら leam-tts.jp 専用のGA4プロパティを新規に切ること。 -->
+     このLPはコーポレートサイトと切り離して運用する。
+     コーポレートと共通の計測IDを入れると、解析ツール側で同一資産として結びついてしまうので使わない。
+     計測が要る場合は、このドメイン専用のプロパティを新規に切ること。
+     （方針の詳細は _handoff/【LEAM LP】現在地_20260908.md を参照。ここには書かない） -->
 <meta name="robots" content="noindex,nofollow">
 <title>TikTok Shop運用支援｜ショート動画・LIVE・アフィリエイトを最適化｜株式会社LEAM</title>
 <meta name="description" content="TikTok Shopの運用支援。ショート動画・LIVE・アフィリエイトを最適化し、売上の最大化を支援します。自社MCN運営、データドリブン×クリエイター目線のショート動画コマース最適化。">
@@ -175,7 +175,7 @@
               <span class="sr-disc"></span>
             </div>
             <div class="sh-cap">
-              <p class="sh-user">@yunacosme</p>
+              <p class="sh-user">@sample_creator_jp</p>
               <p class="sh-txt">乾燥で夕方ファンデ浮く人へ <em>#PR #スキンケア</em></p>
               <p class="sh-music"><svg viewBox="0 0 24 24"><path d="M9 18.5a3 3 0 1 1-2-2.8V5l11-2v12.5a3 3 0 1 1-2-2.8V7.5L9 9z"/></svg><span>オリジナル楽曲 - yuna</span></p>
             </div>
@@ -1338,7 +1338,7 @@
   var form=document.getElementById('consultForm');
   if(!form)return;
   var PORTAL='245162498';
-  /* 🔴 前LP（tiktok.leam.co.jp）と同じフォーム。診断5問のカスタム項目はこちらにしか無い。
+  /* 🔴 旧LPと同じHubSpotフォーム。診断5問のカスタム項目はこちらにしか無い。
         a06e1425-… に送ると診断項目が定義されておらず落ちる */
   var FORM='5517858e-64f1-40bb-9b97-8401673b9881';
   var EP='https://api.hsforms.com/submissions/v3/integration/submit/'+PORTAL+'/'+FORM;
