@@ -4431,3 +4431,11 @@ h1,h2,h3,h4,p,li,summary,figcaption,dd,dt,.lead,.note{
   transition:border-color .15s,box-shadow .15s}
 .cf-other:focus{outline:0;border-color:#E11D48;box-shadow:0 0 0 3px rgba(225,29,72,.16)}
 .cf-other::placeholder{color:#8a8f98}
+
+/* ---- 未定義だった @keyframes の復旧（2026-09-10）----
+   .xsold(mkfloat) / .fvpts i(mkblink) / .lv-cart b・.r3-plus(mkpulse) が
+   定義のないアニメ名を参照していて、公開中のLP Aで4箇所とも静止していた。
+   周期はLP Aの規格（2s/2.4s/3s/5.4s の長い周期）に合わせている。 */
+@keyframes mkpulse{0%,100%{transform:scale(1)}50%{transform:scale(1.14)}}
+@keyframes mkblink{0%,100%{opacity:.35}50%{opacity:1}}
+@keyframes mkfloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}

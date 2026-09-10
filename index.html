@@ -3,11 +3,16 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<!-- 🔴 計測タグは入れない（2026-09-08 江崎さん方針）
-     このLPはコーポレートサイトと切り離して運用する。
-     コーポレートと共通の計測IDを入れると、解析ツール側で同一資産として結びついてしまうので使わない。
-     計測が要る場合は、このドメイン専用のプロパティを新規に切ること。
-     （方針の詳細は _handoff/【LEAM LP】現在地_20260908.md を参照。ここには書かない） -->
+<!-- Google Tag Manager（旧・広告LPから移植・2026-09-10 SOIL秋山さんの依頼）
+     全ページに設置。/thanks/ でCVタグが発火する（URLに thanks を含む条件）。
+     🔴 コーポレート共通のGA4測定IDは引き続き入れない（GTMコンテナとは別物）。 -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-MJXJ549F');</script>
+<!-- End Google Tag Manager -->
+<!-- 🔴 コーポレートサイトとの共通の計測IDは入れない（2026-09-08 江崎さん方針）
+     ・入れないもの＝コーポレートと共通のGA4測定ID。解析ツール側で同一資産として結びついてしまうため
+     ・入れたもの＝旧・広告LPから移植したGTMコンテナ（2026-09-10・SOIL秋山さんの依頼）。
+       これは広告LP専用のコンテナで、コーポレートとは別系統
+     （方針とコンテナIDの詳細は _handoff/【LEAM LP】現在地_20260908.md を参照。ここには書かない） -->
 <meta name="robots" content="noindex,nofollow">
 <title>TikTok Shop運用支援｜ショート動画・LIVE・アフィリエイトを最適化｜株式会社LEAM</title>
 <meta name="description" content="TikTok Shopの運用支援。ショート動画・LIVE・アフィリエイトを最適化し、売上の最大化を支援します。自社MCN運営、データドリブン×クリエイター目線のショート動画コマース最適化。">
@@ -25,12 +30,16 @@
 <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@700&display=swap">
-<link rel="stylesheet" href="assets/css/style.css?v=20260902e">
+<link rel="stylesheet" href="assets/css/style.css?v=20260910a">
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"Organization","name":"株式会社LEAM","url":"https://leam-tts.jp/","logo":"https://leam-tts.jp/assets/img/logo.png","address":[{"@type":"PostalAddress","addressCountry":"JP","addressRegion":"京都府","streetAddress":"下京区玉津島町294 5F","addressLocality":"京都市"},{"@type":"PostalAddress","addressCountry":"JP","addressRegion":"東京都","streetAddress":"北青山1-3-1 アールキューブ青山3階","addressLocality":"港区"}]}
+{"@context":"https://schema.org","@type":"Organization","name":"株式会社LEAM","url":"https://leam-tts.jp/","logo":"https://leam-tts.jp/assets/img/logo.png","address":{"@type":"PostalAddress","addressCountry":"JP","addressRegion":"京都府","streetAddress":"下京区玉津島町294 5F","addressLocality":"京都市"}}
 </script>
 </head>
 <body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MJXJ549F"
+ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
 
 <!-- アイコンスプライト（SVG内に<title>は書かない） -->
 <svg aria-hidden="true" style="position:absolute;width:0;height:0;overflow:hidden">
@@ -1064,7 +1073,7 @@
   <details class="qa"><summary>他社と何が違いますか</summary>
     <p>4つあります。①自社でクリエイター事務所（MCN）を運営し、所属200名以上・提携含め1000名以上と直接連携できること。②自社独自データ×市場データを掛け合わせた自社データベースで判断すること。③日本ローンチ前から先行する中国のTikTok Shop運用を経験していること。④契約前の無料のご相談で、商材の向き不向きを自社データベースを見ながらその場で判定することです。</p></details>
   <details class="qa"><summary>対応エリアはどこまでですか</summary>
-    <p>全国対応です。打ち合わせはオンラインで行います。京都本社と東京支社での対面も可能です。</p></details>
+    <p>全国対応です。打ち合わせはオンラインで行います。京都本社での対面も可能です。</p></details>
   <div class="cta-inline" data-pill="ここに無いご質問も、その場でお答えします">
     <a href="#contact" class="btn">無料で相談する</a>
   </div>
@@ -1161,7 +1170,7 @@
       <button type="submit" class="btn" id="cfSubmit">無料で相談する</button>
       <p class="fnote">送信をもって、<a href="./privacy/">プライバシーポリシー</a>に基づく個人情報の取り扱いにご同意いただいたものとみなします。</p>
     </form>
-    <p class="cform-legal">株式会社LEAM（代表取締役 江﨑翼／京都本社・東京支社）</p>
+    <p class="cform-legal">株式会社LEAM（代表取締役 江﨑翼／京都本社）</p>
     <p class="fallback">フォームでの送信がうまくいかない場合は、メールでも承ります。<br>
       <a href="mailto:info@leam.co.jp">info@leam.co.jp</a>（受付：平日10:00〜19:00）</p>
   </div>
@@ -1178,7 +1187,7 @@
     <li><a href="privacy/">プライバシーポリシー</a></li>
     <li><a href="#contact">無料で相談する</a></li>
   </ul>
-  <p class="cp">株式会社LEAM<br>京都本社：京都府京都市下京区玉津島町294 5F／東京支社：東京都港区北青山1丁目3番1号 アールキューブ青山3階<br>
+  <p class="cp">株式会社LEAM<br>京都本社：京都府京都市下京区玉津島町294 5F<br>
   TikTok および TikTok Shop は TikTok Pte. Ltd. の商標です。</p>
   <p class="cp">&copy; 株式会社LEAM</p>
  </div>
@@ -1263,7 +1272,7 @@
 {"@type":"Question","name":"アフィリエイト運用とは何ですか","acceptedAnswer":{"@type":"Answer","text":"クリエイターが商品を紹介し、売上に応じて報酬が支払われる成果報酬型のPR手法です。当社は自社でクリエイター事務所（MCN）を運営しているため、所属クリエイターと直接やり取りでき、選定・打診・条件設計・投稿管理までを一貫して代行します。"}},
 {"@type":"Question","name":"広告費は別途かかりますか","acceptedAnswer":{"@type":"Answer","text":"はい。月額費用に広告費は含まれません。広告費は戦略によって変動しますが、当社から最適な配分をご提案したうえで、ご予算に合う形で進めます。このほか、サンプル商品代と送料、クリエイターへの報酬は実費でのご負担となります。"}},
 {"@type":"Question","name":"他社と何が違いますか","acceptedAnswer":{"@type":"Answer","text":"4つあります。①自社でクリエイター事務所（MCN）を運営し、所属200名以上・提携含め1000名以上と直接連携できること。②自社独自データ×市場データを掛け合わせた自社データベースで判断すること。③日本ローンチ前から先行する中国のTikTok Shop運用を経験していること。④契約前の無料のご相談で、商材の向き不向きを自社データベースを見ながらその場で判定することです。"}},
-{"@type":"Question","name":"対応エリアはどこまでですか","acceptedAnswer":{"@type":"Answer","text":"全国対応です。打ち合わせはオンラインで行います。京都本社と東京支社での対面も可能です。"}}]}
+{"@type":"Question","name":"対応エリアはどこまでですか","acceptedAnswer":{"@type":"Answer","text":"全国対応です。打ち合わせはオンラインで行います。京都本社での対面も可能です。"}}]}
 </script>
 <script>
 (function(){
