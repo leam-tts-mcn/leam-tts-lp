@@ -2174,10 +2174,20 @@ h1,h2,h3,h4,p,li,summary,figcaption,dd,dt,.lead,.note{
   text-wrap:pretty;
   line-break:strict;
 }
-/* 表・数値・ボタンのラベルは文節折りしない（意図した1行を保つ） */
-.btn,th,td,.pc2-price,.pill,[class*="badge"],[class*="chip"],[class*="tag"]{
+/* 表・数値・ボタンのラベルは文節折りしない（意図した1行を保つ）
+   🔴 2026-09-15：ここに th,td が入っていたせいで、特商法・会社概要の表が
+      **全画面幅で横にはみ出していた**（375px→表1,374px／1440pxでも1,677px）。
+      所在地・連絡先・「対価以外に必要な費用」が画面上で読めない状態だった。
+      HTMLは <div class="scroll"> で表を包んでいたが、.scroll のCSSが未定義だった（0件）。
+      トップページに td/th は1つも無いので、外してもトップには影響しない。 */
+.btn,.pc2-price,.pill,[class*="badge"],[class*="chip"],[class*="tag"]{
   word-break:normal;text-wrap:nowrap
 }
+/* 法定表記の表：見出し列は折らず、値だけ折り返す。包みは横スクロールを受ける */
+.tbl th{text-wrap:nowrap;white-space:nowrap}
+.tbl td{text-wrap:wrap;word-break:normal;overflow-wrap:anywhere}
+.scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;max-width:100%}
+@media(max-width:480px){.tbl th{font-size:12px;padding-left:8px;padding-right:8px}}
 .btn{text-wrap:balance}
 /* ── 03 CYCLE：丸に当たったらTikTokシアンで光る ＋ イラストを大きく（2026-09-03 江崎さん指示）
    🔴 旧実装は color-mix(... calc(var(--lit)*100%) ...) で色を作っていたが、
