@@ -1410,7 +1410,16 @@
 
   form.addEventListener('submit',function(e){
     e.preventDefault();
-    if(form.elements['_hp'].value){location.href='./thanks/';return;}  /* ボット */
+    /* 🔴 ハニーポット。以前はここで './thanks/' へ飛ばしていたが、
+          GTMのコンバージョンは「URLに thanks を含む」だけが条件なので、
+          **ボットが1件通るたびに広告側のCVが1件増え、HubSpotには何も残らない**。
+          2026-09-17にSOIL様と「管理画面2件／HubSpot0件」の食い違いになった原因のひとつ。
+          飛ばさず、その場で完了したように見せる（ボットには成功に見え、CVは立たない）。 */
+    if(form.elements['_hp'].value){
+      say('お問い合わせを受け付けました。','ok');
+      btn.disabled=true; btn.textContent='送信しました';
+      return;
+    }
     var bad=invalid();
     if(bad.length){
       say(bad.join('・')+'をご確認ください。','bad');
@@ -1457,7 +1466,13 @@
     fetch(EP,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)})
       .then(function(r){return r.json().then(function(j){return {ok:r.ok,body:j};});})
       .then(function(res){
-        if(res.ok){ location.href='./thanks/'; return; }
+        if(res.ok){
+          /* 🔴 HubSpotが200を返したときだけ印を置く。サンクスページはこの印がある時だけ
+                dataLayer に leam_lead を積む。GTMのトリガーをこのイベントに変えれば、
+                直接アクセス・リロード・ボットではコンバージョンが立たなくなる。 */
+          try{ sessionStorage.setItem('leam_lead','1'); }catch(e){}
+          location.href='./thanks/'; return;
+        }
         throw new Error((res.body&&res.body.errors&&res.body.errors[0]&&res.body.errors[0].message)||'送信に失敗しました');
       })
       .catch(function(){

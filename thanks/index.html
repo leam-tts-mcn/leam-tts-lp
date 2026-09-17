@@ -32,4 +32,18 @@
 <li><a href="../legal/">特定商取引法に基づく表記</a></li><li><a href="../privacy/">プライバシーポリシー</a></li></ul>
 <p class="cp">&copy; 株式会社LEAM</p>
 </div></footer>
+<script>
+/* 🔴 フォームがHubSpotから200を受け取ったときだけ dataLayer に積む（2026-09-17）
+   いまのGTMのトリガーは「URLに thanks を含む」だけなので、
+   直接アクセス・リロード・ボットでもコンバージョンが立ってしまう。
+   GTM側のトリガーを「カスタムイベント = leam_lead」に変えると、
+   実際にHubSpotへ入った1件だけが数えられるようになる。
+   ※このスクリプト単体では何も壊さない。GTMを変えるまでは従来どおり動く。 */
+(function(){
+  var ok=false;
+  try{ ok = sessionStorage.getItem('leam_lead')==='1'; if(ok) sessionStorage.removeItem('leam_lead'); }catch(e){}
+  window.dataLayer=window.dataLayer||[];
+  if(ok) window.dataLayer.push({event:'leam_lead'});
+})();
+</script>
 </body></html>
