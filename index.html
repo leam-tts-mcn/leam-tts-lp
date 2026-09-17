@@ -1336,6 +1336,27 @@
   });
 })();
 
+/* 流入元の記録（2026-09-17）
+   🔴 なぜ要るか：SOIL様経由は成果報酬が発生するので、1件ずつ
+      「広告経由か・オーガニックか」を後から示せないと精算が曖昧になる。
+      HubSpotのトラッキングスクリプトは入れていないので hubspotutk は作られず、
+      HubSpot側には流入元が一切残らない。だから自前で拾って送信に添える。
+   最初に着地したときの値を優先する（サイト内を回っても上書きしない）。 */
+(function(){
+  try{
+    if(sessionStorage.getItem('leam_src')) return;
+    var q=new URLSearchParams(location.search), keep={};
+    ['utm_source','utm_medium','utm_campaign','utm_content','utm_term',
+     'fbclid','gclid','ttclid','msclkid','yclid'].forEach(function(k){
+      var v=q.get(k); if(v) keep[k]=v.slice(0,120);
+    });
+    var ref=document.referrer||'';
+    if(ref){ try{ keep.ref=new URL(ref).hostname; }catch(e){} }
+    keep.lp=location.pathname;
+    sessionStorage.setItem('leam_src', JSON.stringify(keep));
+  }catch(e){}
+})();
+
 /* お問い合わせフォーム → HubSpot Forms API（v3 submissions）へ直接POST
    2026-09-07：HubSpotの埋め込みiframeから移行した。
    理由＝無料プランではiframe内のボタン色・角丸を変更できず（有料機能）、
@@ -1379,12 +1400,32 @@
 
   /* 「その他」の自由記述は HubSpot 側の選択肢に無い値なので、
      選択肢としては送らず「ご相談内容」に添える（不正値で400になるのを避ける） */
+  /* 流入元を1行にまとめる。営業が見て意味が分かる形にする */
+  function sourceLine(){
+    var raw; try{ raw=sessionStorage.getItem('leam_src'); }catch(e){}
+    if(!raw) return '';
+    var d; try{ d=JSON.parse(raw); }catch(e){ return ''; }
+    var label='オーガニック/直接';
+    if(d.fbclid||d.utm_source==='meta'||d.utm_source==='facebook') label='Meta広告';
+    else if(d.gclid) label='Google広告';
+    else if(d.ttclid) label='TikTok広告';
+    else if(d.utm_source) label=d.utm_source+'広告';
+    else if(d.ref && d.ref.indexOf('google')>=0) label='Google検索など';
+    else if(d.ref) label=d.ref+'からの遷移';
+    var bits=[];
+    ['utm_source','utm_medium','utm_campaign','utm_content'].forEach(function(k){
+      if(d[k]) bits.push(k.replace('utm_','')+'='+d[k]);
+    });
+    ['fbclid','gclid','ttclid'].forEach(function(k){ if(d[k]) bits.push(k); });
+    return '［流入元：'+label+(bits.length?'／'+bits.join(' '):'')+'］';
+  }
   function buildInquiry(){
     var out=[form.elements['inquary'].value.trim()];
     var c=form.elements['q_cat_other'];
     var h=form.elements['q_ch_other'];
     if(c && !c.hidden && c.value.trim()) out.push('商品カテゴリ（その他）：'+c.value.trim());
     if(h && !h.hidden && h.value.trim()) out.push('販売チャネル（その他）：'+h.value.trim());
+    var src=sourceLine(); if(src) out.push(src);
     return out.filter(Boolean).join('\n');
   }
   function pick(n){
