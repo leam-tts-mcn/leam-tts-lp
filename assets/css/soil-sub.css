@@ -1,0 +1,39 @@
+:root{--ink:#030303;--ink2:#272727;--line:#dcdcdc;--card-bg:#F9F9F9;--g-line:linear-gradient(90deg,#9577AB,#00A9C7)}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:#fff;color:var(--ink);font-family:"Noto Sans JP","Hiragino Kaku Gothic ProN","Hiragino Sans",Meiryo,sans-serif;font-size:15px;line-height:1.8}
+a{color:inherit}
+.wrap{max-width:960px;margin:0 auto;padding:0 20px}
+.hd{background:#fff;box-shadow:0 1px 0 rgba(0,0,0,.08)}
+.hd .wrap{height:72px;display:flex;align-items:center}
+.hd a{display:flex;align-items:center;gap:16px}
+.brand img{width:134px;height:43px;display:block}
+.corp{font-size:13px;font-weight:700;color:var(--ink2)}
+main section{padding:56px 0 72px}
+h2{margin:0 0 30px;font-size:32px;font-weight:700;line-height:1.3;text-align:center}
+h2::after{content:"";display:block;width:36px;height:8px;margin:14px auto 0;background:linear-gradient(90deg,#FF004C 0 33.34%,#FFC400 33.34% 66.67%,#00E4DE 66.67%) left bottom/100% 2px no-repeat}
+h3{margin:30px 0 8px;font-size:18px;font-weight:700;line-height:1.5}
+p{margin:0 0 12px;font-weight:500}
+.lead{font-weight:700;text-align:center;margin-bottom:24px}
+.scroll{overflow-x:auto}
+.tbl{width:100%;border-collapse:collapse;border-top:2px solid var(--ink)}
+.tbl th,.tbl td{border-bottom:1px solid var(--line);padding:14px 16px;text-align:left;vertical-align:top;font-size:15px;line-height:1.7}
+.tbl th{width:220px;background:var(--card-bg);font-weight:700;white-space:nowrap}
+.tbl td{font-weight:500}
+.note{margin-top:16px;font-size:13px;color:#555}
+.ft{background:var(--ink);color:#fff}
+.ft .wrap{padding-top:36px}
+.ft ul{list-style:none;margin:0;padding:0 0 28px;display:flex;flex-wrap:wrap;gap:6px 22px}
+.ft a{font-size:13px;font-weight:700;text-decoration:none}
+.ft a:hover{text-decoration:underline}
+.ft .cp{margin:0 calc(50% - 50vw);background:var(--g-line);text-align:center;font-size:14px;font-weight:700;padding:10px 16px}
+@media (max-width:767px){
+  .wrap{padding:0 16px}
+  .hd .wrap{height:60px}
+  .brand img{width:106px;height:34px}
+  .corp{font-size:11px}
+  main section{padding:40px 0 56px}
+  h2{font-size:22px}
+  .tbl th{width:auto;white-space:normal;min-width:7em}
+  .tbl th,.tbl td{padding:12px 10px;font-size:14px}
+  .ft .cp{margin:0 calc(50% - 50vw)}
+}

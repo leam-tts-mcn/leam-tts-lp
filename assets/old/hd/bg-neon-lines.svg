@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" preserveAspectRatio="xMidYMid slice">
+<!-- 旧LP「LEAMの強み」のネオンの線（位置と色は元画像の測定値）。下に bg-neon-base.webp を敷く -->
+<defs>
+<filter id="g1" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="7"/></filter>
+<filter id="g2" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="22"/></filter>
+</defs>
+<g filter="url(#g2)" opacity=".55">
+<path d="M-10 220 H440" stroke="#FF10E0" stroke-width="40"/><path d="M1490 859 H1930" stroke="#FF10D8" stroke-width="40"/>
+<path d="M1504 -10 V196" stroke="#2AD2FF" stroke-width="40"/><path d="M416 850 V1090" stroke="#2AD2FF" stroke-width="40"/>
+</g>
+<g filter="url(#g1)" opacity=".9">
+<path d="M-10 220 H436" stroke="#FF1AE4" stroke-width="16"/><path d="M1494 859 H1930" stroke="#FF1ADC" stroke-width="16"/>
+<path d="M1504 -10 V194" stroke="#35DAFF" stroke-width="16"/><path d="M416 852 V1090" stroke="#35DAFF" stroke-width="16"/>
+</g>
+<g stroke-linecap="round">
+<path d="M-10 220 H432" stroke="#FE07E7" stroke-width="9"/><path d="M1501 859 H1930" stroke="#FE09DD" stroke-width="9"/>
+<path d="M1504 -10 V193" stroke="#29DBFE" stroke-width="9"/><path d="M416 854 V1090" stroke="#2BDEFE" stroke-width="9"/>
+<path d="M-10 220 H432" stroke="#FF8EF4" stroke-width="3"/><path d="M1501 859 H1930" stroke="#FF8EEE" stroke-width="3"/>
+<path d="M1504 -10 V193" stroke="#B4F2FF" stroke-width="3"/><path d="M416 854 V1090" stroke="#B4F2FF" stroke-width="3"/>
+</g>
+</svg>

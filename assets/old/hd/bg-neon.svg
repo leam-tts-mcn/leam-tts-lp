@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" preserveAspectRatio="xMidYMid slice">
+<!-- 旧LP「LEAMの強み」の背景（ネオン）を、元画像の測定値でベクターに描き直したもの -->
+<defs>
+<radialGradient id="m1" gradientUnits="userSpaceOnUse" cx="0" cy="0" r="1" gradientTransform="translate(240 250) scale(860 560)">
+<stop offset="0" stop-color="#B8046C"/><stop offset=".3" stop-color="#94045A"/><stop offset=".62" stop-color="#4A0832" stop-opacity=".85"/><stop offset="1" stop-color="#0F1221" stop-opacity="0"/></radialGradient>
+<radialGradient id="m2" gradientUnits="userSpaceOnUse" cx="0" cy="0" r="1" gradientTransform="translate(1690 850) scale(860 560)">
+<stop offset="0" stop-color="#C20473"/><stop offset=".3" stop-color="#9A055D"/><stop offset=".62" stop-color="#4A0832" stop-opacity=".85"/><stop offset="1" stop-color="#0F1221" stop-opacity="0"/></radialGradient>
+<radialGradient id="c1" gradientUnits="userSpaceOnUse" cx="0" cy="0" r="1" gradientTransform="translate(1504 170) scale(600 470)">
+<stop offset="0" stop-color="#1C93D4"/><stop offset=".3" stop-color="#1872AE"/><stop offset=".65" stop-color="#103A60" stop-opacity=".8"/><stop offset="1" stop-color="#0F1221" stop-opacity="0"/></radialGradient>
+<radialGradient id="c2" gradientUnits="userSpaceOnUse" cx="0" cy="0" r="1" gradientTransform="translate(416 900) scale(600 470)">
+<stop offset="0" stop-color="#1C95D6"/><stop offset=".3" stop-color="#1874B0"/><stop offset=".65" stop-color="#103A60" stop-opacity=".8"/><stop offset="1" stop-color="#0F1221" stop-opacity="0"/></radialGradient>
+<filter id="g1" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="10"/></filter>
+<filter id="g2" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="34"/></filter>
+</defs>
+<rect width="1920" height="1080" fill="#0F1221"/>
+<rect width="1920" height="1080" fill="url(#c1)"/>
+<rect width="1920" height="1080" fill="url(#c2)"/>
+<rect width="1920" height="1080" fill="url(#m1)"/>
+<rect width="1920" height="1080" fill="url(#m2)"/>
+<g filter="url(#g2)" opacity=".75">
+<path d="M-10 220 H450" stroke="#FF10E0" stroke-width="70"/>
+<path d="M1480 859 H1930" stroke="#FF10D8" stroke-width="70"/>
+<path d="M1504 -10 V200" stroke="#2AD2FF" stroke-width="70"/>
+<path d="M416 846 V1090" stroke="#2AD2FF" stroke-width="70"/>
+</g>
+<g filter="url(#g1)">
+<path d="M-10 220 H450" stroke="#FF20E6" stroke-width="20"/>
+<path d="M1480 859 H1930" stroke="#FF20DE" stroke-width="20"/>
+<path d="M1504 -10 V200" stroke="#3ADCFF" stroke-width="20"/>
+<path d="M416 846 V1090" stroke="#3ADCFF" stroke-width="20"/>
+</g>
+<g stroke-linecap="round">
+<path d="M-10 220 H450" stroke="#FF2BEA" stroke-width="9"/>
+<path d="M1480 859 H1930" stroke="#FF2BE2" stroke-width="9"/>
+<path d="M1504 -10 V200" stroke="#45E2FF" stroke-width="9"/>
+<path d="M416 846 V1090" stroke="#45E2FF" stroke-width="9"/>
+<path d="M-10 220 H450" stroke="#FFA8F6" stroke-width="2.5"/>
+<path d="M1480 859 H1930" stroke="#FFA8F2" stroke-width="2.5"/>
+<path d="M1504 -10 V200" stroke="#C8F6FF" stroke-width="2.5"/>
+<path d="M416 846 V1090" stroke="#C8F6FF" stroke-width="2.5"/>
+</g>
+</svg>
