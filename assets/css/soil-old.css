@@ -1329,3 +1329,41 @@ ul,ol{padding:0;list-style:none}
   #reasons .rs-cols .rs-tl .rs-n b{font-size:30px}
 }
 .cf-rel{margin:4px 0 12px;font-size:13px;line-height:1.7;color:#5b5f66}
+
+/* ===== 2026-11-09 新プラン（2か月で30・50・100本）用に足したクラス。既存の部品の規則は変えていない ===== */
+#price .pt-note{margin-top:10px;font-size:15px;font-weight:700;line-height:1.6;color:#fff}
+#price .pt-c--c .pt-bar--30::before{width:30%}
+#price .pt-all-t{display:block;line-height:1.5}
+#price .pt-ini{display:flex;flex-direction:column;align-items:center;gap:6px}
+#price .pt-ini-h{display:flex;align-items:baseline;justify-content:center;font-weight:700;line-height:1.2;white-space:nowrap}
+#price .pt-ini-h small{font-size:13px}
+#price .pt-ini-k{font-size:16px;margin-right:8px}
+#price .pt-ini-in{flex:1 1 360px;min-width:0;display:flex;flex-direction:column;align-items:center;gap:8px}
+#price .pt-ini-cap{font-size:14px;font-weight:700;line-height:1.3;color:#030303}
+#price .pt-ex{max-width:888px;margin:16px auto 0;padding:16px 20px;border:1px solid rgba(255,255,255,.35);border-radius:2px;color:#fff}
+#price .pt-ex-h{font-size:16px;font-weight:700;line-height:1.4;text-align:center}
+#price .pt-ex-list{list-style:none;margin:12px 0 0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
+#price .pt-ex-list li{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:2px;padding:10px 6px;background:rgba(255,255,255,.08);border-radius:2px}
+#price .pt-ex-list b{font-size:15px;font-weight:700;line-height:1.4}
+#price .pt-ex-list span{font-size:13px;font-weight:500;line-height:1.5;color:rgba(255,255,255,.82)}
+#price .pt-ex-opt{margin-top:12px;text-align:center;font-size:14px;font-weight:700;line-height:1.6}
+#price .pt-ex-tag{display:inline-block;margin-right:8px;padding:1px 8px;border:1px solid var(--yellow);border-radius:2px;color:var(--yellow);font-size:13px;line-height:1.45;vertical-align:1px}
+@media (max-width:767px){
+  #price .pt-note{margin-top:8px;font-size:13px;line-height:1.55}
+  #price .pt-ini-k{font-size:15px;margin-right:6px}
+  #price .pt-ini-in{flex:none;width:100%}
+  #price .pt-ex{margin-top:12px;padding:12px}
+  #price .pt-ex-h{font-size:15px}
+  #price .pt-ex-list{grid-template-columns:repeat(2,minmax(0,1fr));gap:6px;margin-top:10px}
+  #price .pt-ex-list li{padding:8px 4px}
+  #price .pt-ex-list b{font-size:14px}
+  #price .pt-ex-list span{font-size:13px}
+  #price .pt-ex-opt{margin-top:10px;font-size:13px}
+}
+
+/* 11/11 料金：KOL のライブコマースを目立たせる・開設済みの注記は小さく */
+#price .pt-ex-opt--kol{margin-top:18px;font-size:17px}
+#price .pt-ex-opt--kol .pt-ex-kol{color:var(--yellow);font-size:20px}
+#price .pt-ex-note{margin-top:2px;text-align:center;font-size:12px;opacity:.85}
+#price .pt-ini-cap--s{font-size:12px;font-weight:500}
+@media (max-width:767px){#price .pt-ex-opt--kol{font-size:15px}#price .pt-ex-opt--kol .pt-ex-kol{font-size:18px}}
